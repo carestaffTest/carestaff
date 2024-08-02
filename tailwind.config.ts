@@ -1,14 +1,14 @@
-import type { Config } from "tailwindcss"
+/** @type {import('tailwindcss').Config} */
+import { withUt } from "uploadthing/tw";
 
-const config = {
+module.exports = withUt({
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
-  prefix: "",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -17,17 +17,37 @@ const config = {
         "2xl": "1400px",
       },
     },
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+      square: "square",
+      roman: "upper-roman",
+    },
     extend: {
       colors: {
+        primary: {
+          500: "#624CF5",
+          50: " #F6F8FD",
+          DEFAULT: "#624CF5",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        coral: {
+          500: "#15BF59",
+        },
+
+        grey: {
+          600: "#545454", // Subdued - color name in figma
+          500: "#757575",
+          400: "#AFAFAF", // Disabled - color name in figma
+          50: "#F6F6F6", // White Grey - color name in figma
+        },
+        black: "#000000",
+        white: "#FFFFFF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -53,6 +73,20 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        poppins: ["var(--font-poppins)"],
+      },
+      backgroundImage: {
+        "dotted-pattern": "url('/assets/images/dotted-pattern.png')",
+        "hero-img": "url('/assets/images/hero.png')",
+        "login-img": "url('/assets/images/login_image.jpg')",
+        "who-we-are-img": "url('/assets/images/who_we_are.png')",
+        "step-border-img": "url('/assets/images/step_border.png')",
+        "left-dog-img": "url('/assets/images/left-dog.png')",
+        "orange-stripe-img": "url('/assets/images/orange-stripe.png')",
+        "blue-stripe-img": "url('/assets/images/blue-stripe.png')",
+        "faq-photo-img": "url('/assets/images/faq-photo.png')",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -75,6 +109,4 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
-
-export default config
+});
