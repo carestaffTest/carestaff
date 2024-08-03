@@ -1,9 +1,24 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import React from "react";
+import { ArrowLeft } from "lucide-react";
 
 const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
+  const router = useRouter();
+
+  const backButton = (e: any) => {
+    e.preventDefault();
+    router.back();
+  };
   return (
     <div className="flex flex-col w-full gap-2 md:gap-5 p-medium-14 lg:p-medium-18">
+      <button type="button" onClick={backButton}>
+        <span className="text-[#e5811e]">
+          <ArrowLeft />
+        </span>
+      </button>
       <div className="">
         <p>Job Details:</p>
       </div>
@@ -200,60 +215,42 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           {jobDetails?.earlyWorkingHours && (
             <li>
               <p className="p-regular-12 lg:p-regular-16">
-                Early Shift:{' '}
-                <span>
-                  {jobDetails?.earlyWorkingHours}
-                </span>
+                Early Shift: <span>{jobDetails?.earlyWorkingHours}</span>
               </p>
             </li>
           )}
           {jobDetails?.dayWorkingHours && (
             <li>
               <p className="p-regular-12 lg:p-regular-16">
-                Day Shift:{' '}
-                <span>
-                  {jobDetails?.dayWorkingHours}
-                </span>
+                Day Shift: <span>{jobDetails?.dayWorkingHours}</span>
               </p>
             </li>
           )}
           {jobDetails?.lateworkingHours && (
             <li>
               <p className="p-regular-12 lg:p-regular-16">
-                Late Shift:{' '}
-                <span>
-                  {jobDetails?.lateworkingHours}
-                </span>
+                Late Shift: <span>{jobDetails?.lateworkingHours}</span>
               </p>
             </li>
           )}
           {jobDetails?.nightworkingHours && (
             <li>
               <p className="p-regular-12 lg:p-regular-16">
-                Night Shift:{' '}
-                <span>
-                  {jobDetails?.nightworkingHours}
-                </span>
+                Night Shift: <span>{jobDetails?.nightworkingHours}</span>
               </p>
             </li>
           )}
           {jobDetails?.firstOtherkingHours && (
             <li>
               <p className="p-regular-12 lg:p-regular-16">
-                Other Shift:{' '}
-                <span>
-                  {jobDetails?.firstOtherWorkingHours}
-                </span>
+                Other Shift: <span>{jobDetails?.firstOtherWorkingHours}</span>
               </p>
             </li>
           )}
           {jobDetails?.secondOtherWorkingHours && (
             <li>
               <p className="p-regular-12 lg:p-regular-16">
-                Other Shift:{' '}
-                <span>
-                  {jobDetails?.secondOtherWorkingHours}
-                </span>
+                Other Shift: <span>{jobDetails?.secondOtherWorkingHours}</span>
               </p>
             </li>
           )}

@@ -6,8 +6,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
   const jobsData = await getRecomendedJobs({
-    query: "Recomended",
-    page,
+    query: "Recommended",
+    page: 1,
     limit: 3,
   });
 

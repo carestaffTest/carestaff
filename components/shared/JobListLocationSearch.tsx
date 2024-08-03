@@ -16,6 +16,10 @@ const JobListLocationSearch = ({
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    const savedSearchTerm = localStorage.getItem("location");
+    if (savedSearchTerm) {
+      setLocation(savedSearchTerm);
+    }
     const delayDebounceFn = setTimeout(() => {
       let newUrl = "";
 
@@ -38,6 +42,12 @@ const JobListLocationSearch = ({
     return () => clearTimeout(delayDebounceFn);
   }, [location, searchParams, router]);
 
+  const handleInputChange = (event: any) => {
+    const value = event.target.value;
+    setLocation(value);
+    localStorage.setItem("location", value);
+  };
+
   return (
     <div className="flex-center min-h-[54px] w-full overflow-hidden rounded-md bg-grey-50 px-4 py-2">
       <Image
@@ -49,7 +59,8 @@ const JobListLocationSearch = ({
       <Input
         type="text"
         placeholder={placeholder}
-        onChange={(e) => setLocation(e.target.value)}
+        value={location}
+        onChange={handleInputChange}
         className="p-regular-16 border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
       />
     </div>

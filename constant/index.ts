@@ -53,58 +53,6 @@ export const userHeaderLinks = [
 ];
 
 export const jobDetailsDefaultValues = {
-  // jobNumber: "",
-  // recruitmentCode: "",
-  // projectHeading: "",
-  // companyNumber: "",
-  // companyName: "",
-  // specialConditions: "",
-  // employmentStatus: "",
-  // industry: "",
-  // occupationClassification: "",
-  // jobType: "",
-  // salaryRange: "",
-  // salaryDetails: "",
-  // benefitsDetails: "",
-  // point: "",
-  // jobDescription: "",
-  // qualificationName: "",
-  // workLocation: "",
-  // municipalityHokkaido: "",
-  // municipalityAomori: "",
-  // municipalityIwate: "",
-  // municipalityAkita: "",
-  // municipalityMiyagi: "",
-  // municipalityFukushima: "",
-  // municipalityYamagata: "",
-  // municipalityTochigi: "",
-  // municipalityNagano: "",
-  // transportationAccessInformation: "",
-  // workingDays: "",
-  // earlyWorkingHours: "",
-  // dayWorkingHours: "",
-  // lateworkingHours: "",
-  // nightworkingHours: "",
-  // firstOtherWorkingHours: "",
-  // secondOtherWorkingHours: "",
-  // holidaysOrVacations: "",
-  // personInCharge: "",
-  // hpUpdateDate: "",
-  // webListing: "",
-  // jobRegistrationDate: "",
-  // registeredDate: "",
-  // updateDateAndTime: "",
-  // inCharge: "",
-  // recruitmentCaseManager: "",
-  // directlyPostedOnIndeed: "",
-  // recruitmentBoxDirectPosting: "",
-  // talentClipPublicOrPrivate: "",
-  // nurseHpPublicOrPrivate: "",
-  // status: "",
-  // memo: "",
-  // secondMemo: "",
-  // webMediaDisclosureOrNonDisclosure: "",
-
   jobNumber: "",
   recruitmentCode: "",
   jobType: "",
@@ -520,7 +468,7 @@ export const faqsLinks = [
   },
   {
     key: "3",
-    section: "3. .Employee benefits, social insurance, etc.",
+    section: "3. Employee benefits, social insurance, etc.",
     sectionLink: "/faqs/#employeebenefits",
   },
   {
@@ -538,31 +486,12 @@ export const faqsLinks = [
 export const faqsOne = [
   {
     key: "1",
-    question: "I would like to check the jobs I have viewed before.",
-    answer:
-      "Your browsing history will automatically appear on the job search page. Please note that if you use a different device than the one you used before, it will not be displayed if you clear your device's history.",
-  },
-  {
-    key: "2",
-    question: "I forgot my Inquiry No. (Job ID). What should I do?",
-    answer:
-      "Please check the email you received automatically when you apply or make an inquiry, as it will contain your inquiry number.",
-  },
-  {
-    key: "3",
-    question:
-      "I have not received an automatic e-mail., social insurance, etc.",
-    answer:
-      "Please check the settings of various devices to make sure that you do not have any exclusion settings for computer mail, and make sure that you do not exclude the @care-staff.co.jp domain",
-  },
-  {
-    key: "4",
     question: "I applied and registered, but I haven't been contacted.",
     answer:
       "If you have not heard from us within 3 business days, please contact us at our toll-free number: 0120070775. In some cases, there may be an error in entering the contact phone number, etc., and we may not be able to contact you.",
   },
   {
-    key: "5",
+    key: "2",
     question: "Questions about the website contents",
     answer:
       "Morioka Head Office (WEB Management Office)　 TEL: 0120-070-775　 Email: info@care-staff.co.jp",
@@ -573,18 +502,17 @@ export const faqsTwo = [
   {
     key: "1",
     question: "I apply for multiple jobs?",
-    answer:
-      "It is possible to apply for multiple jobs, but the system does not allow for bulk applications. If there are multiple jobs you are interested in, you can also register instead of applying.",
+    answer: "It is possible to apply for multiple jobs.",
   },
   {
     key: "2",
-    question: "What browser environment is required to use this website?",
+    question: "I have applied for a job online before, can I apply again?",
     answer:
       "You can apply as many times as you like. Since we have a history of previous applications, you can contact us instead of applying again . If you have already registered, you can directly ask the coordinator in charge to introduce you to a job.",
   },
   {
     key: "3",
-    question: "What browser environment is required to use this website?",
+    question: "Can I cancel my online job application or web registration?",
     answer:
       "Please send an email to iwate@care-staff.co.jp with your name, address, and phone number. After the deletion is complete, the management office will contact you by email to notify you of the completion.",
   },
@@ -729,7 +657,7 @@ export const faqsFour = [
   {
     key: "11",
     question: "Can I get a resident tax deduction?",
-    answer: "Is possible.",
+    answer: "It's possible.",
   },
   {
     key: "12",

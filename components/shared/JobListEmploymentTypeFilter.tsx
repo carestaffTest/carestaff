@@ -2,7 +2,7 @@
 
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -17,6 +17,14 @@ const JobListEmploymentTypeFilter = () => {
   const searchParams = useSearchParams();
   const [selectedOption, setSelectedOption] = useState("All");
 
+  useEffect(() => {
+    // Load the search term from local storage when the component mounts
+    const savedSearchTerm = localStorage.getItem("employment");
+    if (savedSearchTerm) {
+      setSelectedOption(savedSearchTerm);
+    }
+  }, []);
+
   const onSelectCategory = (
     employment: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -30,6 +38,8 @@ const JobListEmploymentTypeFilter = () => {
         key: "employment",
         value: newValue,
       });
+
+      localStorage.setItem("employment", newValue);
     } else {
       newUrl = removeKeysFromQuery({
         params: searchParams.toString(),
