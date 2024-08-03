@@ -314,6 +314,23 @@ body {
   @apply hidden !important;
 }
 
+.translate-widget select option {
+  font-family: Arial, sans-serif !important;
+  font-size: 14px !important;
+  color: black !important;
+  background-color: white !important;
+  text-transform: none !important;
+  unicode-bidi: isolate !important;
+}
+
+.translate-widget .goog-te-combo {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-transform: none;
+  color: black;
+  background-color: white;
+}
+
 .horizontal-writing {
   writing-mode: horizontal-tb;
 }

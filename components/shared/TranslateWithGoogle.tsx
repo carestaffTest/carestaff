@@ -37,7 +37,7 @@ const TranslateWithGoogle: React.FC = () => {
           height={24}
           className="mt-[2px]"
         />
-        <div id="google_translate_element" />
+        <div id="google_translate_element" className="translate-widget" />
       </div>
     </div>
   );

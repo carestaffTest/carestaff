@@ -1,12 +1,12 @@
 import Homepage from "@/components/shared/Homepage";
-import { getAllJobs } from "@/lib/actions/jobs.actions";
+import { getAllJobs, getRecomendedJobs } from "@/lib/actions/jobs.actions";
 import { SearchParamProps } from "@/types";
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
-  const jobsData = await getAllJobs({
-    query: searchText,
+  const jobsData = await getRecomendedJobs({
+    query: "Recomended",
     page,
     limit: 3,
   });

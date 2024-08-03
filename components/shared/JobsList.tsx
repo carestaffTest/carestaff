@@ -1,4 +1,8 @@
-import { getAllJobs, getAllJobsSearch } from "@/lib/actions/jobs.actions";
+import {
+  getAllJobs,
+  getAllJobsSearch,
+  getRecomendedJobs,
+} from "@/lib/actions/jobs.actions";
 import React from "react";
 import JobsListTable from "./JobsListTable";
 import JobsListCollection from "./JobsListCollection";
@@ -18,8 +22,8 @@ const JobsList = async ({ page, jobTitle, location, employment }: any) => {
 
   const totalPages = jobsData?.totalPages ? jobsData?.totalPages : 0;
 
-  const jobsDataRight = await getAllJobs({
-    query: "",
+  const jobsDataRight = await getRecomendedJobs({
+    query: "Recommended",
     page: 1,
     limit: 3,
   });
@@ -64,7 +68,7 @@ const JobsList = async ({ page, jobTitle, location, employment }: any) => {
         <div className="hidden lg:w-3/5 lg:flex relative">
           <div className="w-full flex items-center flex-col py-5 px-10 rounded-2xl sticky gap-10">
             <div className="w-full flex justify-center h3-medium text-[#53d1d1]">
-              <p>Featured Jobs</p>
+              <p>Recommended Jobs</p>
             </div>
             <JobsListCollection
               jobsData={jobsDataRight?.data}

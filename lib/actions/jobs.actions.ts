@@ -102,6 +102,38 @@ export async function getAllJobs({ query, limit = 10, page }: GetAll) {
   }
 }
 
+export async function getRecomendedJobs({ query, limit = 10, page }: GetAll) {
+  try {
+    await connectToDatabase();
+
+    const projectHeadingCondition = query
+      ? {
+          projectHeading: { $regex: query, $options: "i" },
+        }
+      : {};
+    const conditions = {
+      $and: [projectHeadingCondition],
+    };
+    const skipAmount = (Number(page) - 1) * limit;
+
+    const sortCondition = { createdAt: "desc", _id: "asc" } as any;
+    const jobsQuery = Jobs.find(conditions)
+      .sort(sortCondition)
+      .skip(skipAmount)
+      .limit(limit);
+
+    const jobs = await populate(jobsQuery);
+    const jobsCount = await Jobs.countDocuments(conditions);
+
+    return {
+      data: JSON.parse(JSON.stringify(jobs)),
+      totalPages: Math.ceil(jobsCount / limit),
+    };
+  } catch (error) {
+    handleError(error);
+  }
+}
+
 export async function getJobById(jobId: string) {
   try {
     await connectToDatabase();

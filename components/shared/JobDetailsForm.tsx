@@ -133,7 +133,7 @@ const JobDetailsForm = ({
                   <Input
                     placeholder="Job Number"
                     {...field}
-                    disabled
+                    disabled={type === "Update" ? true : false}
                     className="input-field"
                   />
                 </FormControl>
@@ -163,12 +163,12 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="projectHeading"
+            name="jobType"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Project Heading"
+                    placeholder="Job type"
                     {...field}
                     className="input-field"
                   />
@@ -180,12 +180,12 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="companyNumber"
+            name="projectHeading"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Company number"
+                    placeholder="Project heading"
                     {...field}
                     className="input-field"
                   />
@@ -199,12 +199,48 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="companyName"
+            name="point"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Company Name"
+                    placeholder="Point"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="jobDescription"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Job Description"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="personInCharge"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Person in charge"
                     {...field}
                     className="input-field"
                   />
@@ -235,65 +271,29 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
+            name="hpUpdateDate"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="HP update date"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="employmentStatus"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Employment status"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="industry"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Industry"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
-            name="occupationClassification"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Occupation Classification"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="jobType"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Job Title"
+                    placeholder="Employment Status"
                     {...field}
                     className="input-field"
                   />
@@ -312,7 +312,7 @@ const JobDetailsForm = ({
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Monthly Wage Salary Range"
+                    placeholder="Hourly wage/daily wage/monthly wage/annual salary/minimum amount to maximum amount Required"
                     {...field}
                     className="input-field"
                   />
@@ -329,7 +329,7 @@ const JobDetailsForm = ({
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Salary details (allowances, etc.)"
+                    placeholder="Salary Details (allowances, etc.)"
                     {...field}
                     className="input-field"
                   />
@@ -360,84 +360,12 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="point"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Point"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
-            name="jobDescription"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl className="h-72">
-                  <Textarea
-                    placeholder="Job Description"
-                    {...field}
-                    className="textarea rounded-md"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="qualificationName"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl className="h-72">
-                  <Textarea
-                    placeholder="Qualifications"
-                    {...field}
-                    className="textarea rounded-md"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
             name="workLocation"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Work location"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="municipalityHokkaido"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Work location (municipality) Hokkaido"
+                    placeholder="Work location (prefecture)"
                     {...field}
                     className="input-field"
                   />
@@ -451,14 +379,14 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="municipalityAomori"
+            name="municipalityHokkaido"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Work location (municipality) Aomori"
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Work location (municipality) Hokkaido"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -466,6 +394,25 @@ const JobDetailsForm = ({
             )}
           />
 
+          <FormField
+            control={form.control}
+            name="municipalityAomori"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Work location (municipality) Aomori"
+                    {...field}
+                    className="textarea rounded-md"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityIwate"
@@ -473,7 +420,24 @@ const JobDetailsForm = ({
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Work location (municipality) Iwate"
+                    placeholder="rk location (municipality) Iwate"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="municipalityAkita"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Work location (city/town/village) Akita"
                     {...field}
                     className="input-field"
                   />
@@ -485,23 +449,6 @@ const JobDetailsForm = ({
         </div>
 
         <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
-            name="municipalityAkita"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Work location (municipality) Akita"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <FormField
             control={form.control}
             name="municipalityMiyagi"
@@ -518,9 +465,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityFukushima"
@@ -537,7 +482,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityYamagata"
@@ -554,9 +501,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityTochigi"
@@ -565,6 +510,25 @@ const JobDetailsForm = ({
                 <FormControl>
                   <Input
                     placeholder="Work location (municipality) Tochigi"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="municipalityGunma"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Work location (municipality) Gunma"
                     {...field}
                     className="input-field"
                   />
@@ -600,7 +564,7 @@ const JobDetailsForm = ({
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Transportation access information"
+                    placeholder="Transportation Access Information"
                     {...field}
                     className="input-field"
                   />
@@ -612,12 +576,48 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="workingDays"
+            name="workAddress"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Working Days"
+                    placeholder="Work location (address, street number, etc.)"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="occupationClassification"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Occupation Classification"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="industry"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Industry"
                     {...field}
                     className="input-field"
                   />
@@ -636,7 +636,7 @@ const JobDetailsForm = ({
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Early Shift: Working Hours"
+                    placeholder="Early shift: Working Hours"
                     {...field}
                     className="input-field"
                   />
@@ -756,12 +756,12 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="personInCharge"
+            name="qualificationName"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Person in charge (comment)"
+                    placeholder="Qualification Name"
                     {...field}
                     className="input-field"
                   />
@@ -775,12 +775,12 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="hpUpdateDate"
+            name="companyName"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="HP update date"
+                    placeholder="Company Name"
                     {...field}
                     className="input-field"
                   />
@@ -792,12 +792,12 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="webListing"
+            name="nearStation"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Web Listing"
+                    placeholder="Nearest station (only one station name, JR station only)"
                     {...field}
                     className="input-field"
                   />
@@ -811,12 +811,84 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="jobRegistrationDate"
+            name="earlyShiftConsultant"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Job Registration Date"
+                    placeholder="Early shift: Consultation on Working Conditions"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="dayShiftConsultant"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Day shift: Consultation on Working Conditions"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="lateShiftConsultant"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Late shift: Consultation on Working Conditions"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="nightShiftConsultant"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Night shift: Consultation on Working Conditions"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="otherShiftConsultant"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Other 1: Consultation on Working Conditions"
                     {...field}
                     className="input-field"
                   />
@@ -847,12 +919,12 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="updateDateAndTime"
+            name="contractPeriod"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Update date and time"
+                    placeholder="Contract period Input example: 2 months"
                     {...field}
                     className="input-field"
                   />
@@ -864,48 +936,12 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="inCharge"
+            name="contractRenew"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="in charge"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
-            name="recruitmentCaseManager"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Recruitment case manager (for internal processing)"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="directlyPostedOnIndeed"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="For head office management: Directly posted on Indeed"
+                    placeholder="Whether to renew the contract"
                     {...field}
                     className="input-field"
                   />
@@ -919,12 +955,12 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="recruitmentBoxDirectPosting"
+            name="insurance"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="For head office management: Recruitment box direct posting"
+                    placeholder="[Required] Participating insurance"
                     {...field}
                     className="input-field"
                   />
@@ -936,48 +972,12 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="talentClipPublicOrPrivate"
+            name="passiveSmoking"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="For head office management: TalentClip public/private"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
-            name="nurseHpPublicOrPrivate"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="For head office management: Nurse HP public/private"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="status"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Status"
+                    placeholder="[Required] Measures against passive smoking"
                     {...field}
                     className="input-field"
                   />
@@ -991,48 +991,12 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="memo"
+            name="postCode"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Memo"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="secondMemo"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Memo 2 (WEB media publication history)"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
-            name="webMediaDisclosureOrNonDisclosure"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Web media disclosure/non-disclosure"
+                    placeholder="Post Code"
                     {...field}
                     className="input-field"
                   />

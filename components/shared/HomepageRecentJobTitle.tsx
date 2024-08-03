@@ -36,7 +36,7 @@ const HomepageRecentJobTitle = () => {
       animate={animation1}
       className="text-[#e27107] h3-bold z-10"
     >
-      Recent Jobs
+      Recommended Jobs
     </motion.div>
   );
 };

@@ -18,21 +18,18 @@ const ImportFileUpload = ({ userId }: any) => {
   const headerMapping: { [key: string]: string } = {
     "Job number": "jobNumber",
     "Recruitment code": "recruitmentCode",
-    "Project heading": "projectHeading",
-    "Company number": "companyNumber",
-    "Company Name": "companyName",
-    "Special conditions (checkbox 4)": "specialConditions",
-    "Employment status": "employmentStatus",
-    Industry: "industry",
-    "Occupation classification": "occupationClassification",
     "Job type (for indeed) (text area 5)": "jobType",
-    "★Hourly wage/daily wage/monthly wage/annual salary/minimum amount to maximum amount Required (Text Box 1)":
+    "Project heading": "projectHeading",
+    "Point (text area 3)": "point",
+    "job description": "jobDescription",
+    "Person in charge (comment) (text area 1)": "personInCharge",
+    "Special conditions (checkbox 4)": "specialConditions",
+    "HP update date (text box 2)": "hpUpdateDate",
+    "Employment status": "employmentStatus",
+    "Hourly wage/daily wage/monthly wage/annual salary/minimum amount to maximum amount Required (Text Box 1)":
       "salaryRange",
     "Salary details (allowances, etc.) (text area 4)": "salaryDetails",
     "Treatment/benefits (checkbox 5)": "benefitsDetails",
-    "Point (text area 3)": "point",
-    "job description": "jobDescription",
-    "Qualification name (checkbox 3)": "qualificationName",
     "Work location (prefecture) (pulldown 1)": "workLocation",
     "Work location (municipality) Hokkaido (pulldown 2)":
       "municipalityHokkaido",
@@ -45,40 +42,41 @@ const ImportFileUpload = ({ userId }: any) => {
     "Work location (municipality) Yamagata (pulldown 8)":
       "municipalityYamagata",
     "Work location (municipality) Tochigi (pulldown 9)": "municipalityTochigi",
+    "Work location (municipality) Gunma (pulldown 15)": "municipalityGunma",
     "Work location (municipality) Nagano (pulldown 17)": "municipalityNagano",
     "Transportation access information (text box 10)":
       "transportationAccessInformation",
-    "Working days": "workingDays",
-    "▼Early shift: Working hours (text box 3)": "earlyWorkingHours",
-    "▼Day shift: Working hours (text box 4)": "dayWorkingHours",
-    "▼Late shift: working hours (text box 5)": "lateworkingHours",
-    "▼Night shift: working hours (text box 6)": "nightworkingHours",
-    "▼Other 1: Working hours (text box 7)": "firstOtherWorkingHours",
-    "▼Other 2: Working hours (Text Box 8)": "secondOtherWorkingHours",
+    "Work location (address, street number, etc.) (Text box 9)": "workAddress",
+    "Occupation classification": "occupationClassification",
+    Industry: "industry",
+    "Early shift: Working hours (text box 3)": "earlyWorkingHours",
+    "Day shift: Working hours (text box 4)": "dayWorkingHours",
+    "Late shift: working hours (text box 5)": "lateworkingHours",
+    "Night shift: working hours (text box 6)": "nightworkingHours",
+    "Other 1: Working hours (text box 7)": "firstOtherWorkingHours",
+    "Other 2: Working hours (Text Box 8)": "secondOtherWorkingHours",
     "Holidays/vacations (checkbox 2)": "holidaysOrVacations",
-    "Person in charge (comment) (text area 1)": "personInCharge",
-    "HP update date (text box 2)": "hpUpdateDate",
-    "WEB listing": "webListing",
-    "★Job registration date (=order slip registration date) (Text box 17)":
-      "jobRegistrationDate",
+    "Qualification name (checkbox 3)": "qualificationName",
+    "Company Name": "companyName",
+    "Nearest station (only one station name, JR station only) (Text box 19)":
+      "nearStation",
+    "Early shift: Consultation on working conditions (check box 6)":
+      "earlyShiftConsultant",
+    "Day shift: Working conditions consultation (check box 7)":
+      "dayShiftConsultant",
+    "Late shift: Consultation on working conditions (check box 8)":
+      "lateShiftConsultant",
+    "Night shift: Consultation on working conditions (check box 9)":
+      "nightShiftConsultant",
+    "Other 1: Consultation on working conditions (check box 10)":
+      "otherShiftConsultant",
     "Registered Date": "registeredDate",
-    "Update date and time": "updateDateAndTime",
-    "in charge": "inCharge",
-    "Recruitment case manager (for internal processing) (pulldown 10)":
-      "recruitmentCaseManager",
-    "For head office management: Directly posted on indeed (pulldown 14)":
-      "directlyPostedOnIndeed",
-    "For head office management: Recruitment box direct posting (pulldown 16)":
-      "recruitmentBoxDirectPosting",
-    "For head office management: TalentClip public/private (pulldown 12)":
-      "talentClipPublicOrPrivate",
-    "For head office management: Nurse HP public/private (pulldown 11)":
-      "nurseHpPublicOrPrivate",
-    status: "status",
-    memo: "memo",
-    "Memo 2 (WEB media publication history) (Text area 7)": "secondMemo",
-    "Web media disclosure/non-disclosure (checkbox 25)":
-      "webMediaDisclosureOrNonDisclosure",
+    "Contract period Input example: 2 months (Text box 20)": "contractPeriod",
+    "Whether to renew the contract (pulldown 23)": "contractRenew",
+    "[Required] Participating insurance (checkbox 23)": "insurance",
+    "[Required] Measures against passive smoking (check box 24)":
+      "passiveSmoking",
+    "post code": "postCode",
   };
 
   const handleFileUpload = async (event: any) => {
@@ -90,43 +88,12 @@ const ImportFileUpload = ({ userId }: any) => {
 
     const fileExtension = file.name.split(".").pop()?.toLowerCase();
 
-    // if (fileExtension === "csv") {
-    //   parseCSV(file);
-    // } else 
     if (fileExtension === "xlsx" || fileExtension === "xls") {
       parseExcel(file);
     } else {
-      // setError("Unsupported file format. Please upload a CSV or Excel file.");
       setError("Unsupported file format. Please upload an Excel file.");
     }
   };
-
-  // const parseCSV = (file: File) => {
-  //   Papa.parse(file, {
-  //     header: true,
-  //     skipEmptyLines: false,
-  //     dynamicTyping: true,
-  //     complete: (result) => {
-  //       const data = result.data.map((row: any) => {
-  //         const newRow: { [key: string]: any } = {};
-  //         for (const key in row) {
-  //           if (headerMapping[key]) {
-  //             newRow[headerMapping[key]] = row[key];
-  //           } else {
-  //             newRow[key] = row[key];
-  //           }
-  //         }
-
-  //         return { ...newRow, createdBy: userId };
-  //       });
-  //       setParsedData(data);
-  //       setError(null);
-  //     },
-  //     error: (error) => {
-  //       setError(`Error parsing CSV file: ${error.message}`);
-  //     },
-  //   });
-  // };
 
   const parseExcel = (file: File) => {
     const reader = new FileReader();
@@ -135,7 +102,7 @@ const ImportFileUpload = ({ userId }: any) => {
       const workbook = XLSX.read(data, { type: "array" });
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
-      let json = XLSX.utils.sheet_to_json(worksheet, { defval: null });
+      let json = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
 
       json = json.map((row: any) => {
         const newRow: { [key: string]: any } = {};
@@ -190,7 +157,6 @@ const ImportFileUpload = ({ userId }: any) => {
     <div className="flex-center flex-col gap-5">
       <input
         type="file"
-        // accept=".csv, .xlsx, .xls"
         accept=".xlsx, .xls"
         onChange={handleFileUpload}
         className="p-2 mb-4 border border-gray-300 rounded"
