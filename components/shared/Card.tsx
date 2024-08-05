@@ -43,35 +43,15 @@ const Card = ({ recentJob, employerData, duration }: any) => {
           className="flex w-full flex-col gap-2"
         >
           <div className="flex w-full h-[70px] mb-2">
-            {employerData && employerData.length > 0 ? (
-              employerData.map((employer: any) => {
-                return (
-                  <div className="flex w-full" key={employer._id}>
-                    <Image
-                      src={
-                        employer.imageUrl
-                          ? employer.imageUrl
-                          : "/assets/images/No_Image.png"
-                      }
-                      alt={recentJob.companyName}
-                      width={250}
-                      height={250}
-                      className="w-full object-left object-contain"
-                    />
-                  </div>
-                );
-              })
-            ) : (
-              <div className="flex w-full">
-                <Image
-                  src="/assets/images/No_Image.png"
-                  alt={recentJob.companyName}
-                  width={250}
-                  height={250}
-                  className="w-full object-left object-contain"
-                />
-              </div>
-            )}
+            <div className="flex w-full">
+              <Image
+                src="/assets/images/login_image.jpg"
+                alt="Job Photo"
+                width={250}
+                height={250}
+                className="w-full object-left object-contain"
+              />
+            </div>
           </div>
           <div className="flex text-[#e27107] p-bold-16">
             {recentJob.jobType}

@@ -53,7 +53,7 @@ const ImportFileUpload = ({ userId }: any) => {
     "Day shift: Working hours (text box 4)": "dayWorkingHours",
     "Late shift: working hours (text box 5)": "lateworkingHours",
     "Night shift: working hours (text box 6)": "nightworkingHours",
-    "Other 1: Working hours (text box 7)": "firstOtherWorkingHours",
+    "Other 1: Working hours (Text Box 7)": "firstOtherWorkingHours",
     "Other 2: Working hours (Text Box 8)": "secondOtherWorkingHours",
     "Holidays/vacations (checkbox 2)": "holidaysOrVacations",
     "Qualification name (checkbox 3)": "qualificationName",

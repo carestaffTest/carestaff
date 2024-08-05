@@ -204,7 +204,7 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
               </p>
             </li>
           )}
-          {jobDetails?.firstOtherkingHours && (
+          {jobDetails?.firstOtherWorkingHours && (
             <li>
               <p className="p-regular-12 lg:p-regular-16">
                 Other Shift: <span>{jobDetails?.firstOtherWorkingHours}</span>
