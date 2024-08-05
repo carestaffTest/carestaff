@@ -22,33 +22,6 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       <div className="">
         <p>Job Details:</p>
       </div>
-      {employer.length > 0 ? (
-        employer.map((employerDetail: any) => (
-          <div className="w-full" key={employerDetail._id}>
-            <Image
-              src={
-                employerDetail.imageUrl
-                  ? employerDetail.imageUrl
-                  : "/assets/images/No_Image.png"
-              }
-              alt={employerDetail.companyName}
-              width={250}
-              height={250}
-              className="max-w-full object-left object-contain"
-            />
-          </div>
-        ))
-      ) : (
-        <div className="w-full">
-          <Image
-            src={"/assets/images/No_Image.png"}
-            alt="No image"
-            width={250}
-            height={250}
-            className="max-w-full object-left object-contain"
-          />
-        </div>
-      )}
 
       <div className="">
         <p>
@@ -58,7 +31,7 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       </div>
       <div className="">
         <p>
-          Job number:{" "}
+          Job Number:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.jobNumber}
           </span>
@@ -66,7 +39,7 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       </div>
       <div className="">
         <p>
-          Recruitment code:{" "}
+          Recruitment Code:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.recruitmentCode}
           </span>
@@ -74,7 +47,7 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       </div>
       <div className="">
         <p>
-          Project heading:{" "}
+          Project Heading:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.projectHeading}
           </span>
@@ -82,17 +55,9 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       </div>
       <div className="">
         <p>
-          Employer Name:{" "}
+          Job Description:{" "}
           <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.companyName}
-          </span>
-        </p>
-      </div>
-      <div className="">
-        <p>
-          Company Number:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.companyNumber}
+            {jobDetails?.jobDescription}
           </span>
         </p>
       </div>
@@ -114,23 +79,8 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       </div>
       <div className="">
         <p>
-          Industry:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.industry}
-          </span>
-        </p>
-      </div>
-      <div className="">
-        <p>
-          Occupation Classification:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.occupationClassification}
-          </span>
-        </p>
-      </div>
-      <div className="">
-        <p>
-          Wage:{" "}
+          Hourly wage/daily wage/monthly wage/annual salary/minimum amount to
+          maximum amount:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.salaryRange}
           </span>
@@ -152,25 +102,9 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           </span>
         </p>
       </div>
-      <div className="">
-        <p>
-          Job Description:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.jobDescription}
-          </span>
-        </p>
-      </div>
-      <div className="">
-        <p>
-          Qualifications:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.qualificationName}
-          </span>
-        </p>
-      </div>
       <div className="flex flex-col">
         <p>
-          Location:{" "}
+          Prefecture:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.workLocation}
           </span>
@@ -192,6 +126,12 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
             {jobDetails?.municipalityNagano && jobDetails?.municipalityNagano}
           </span>
         </p>
+        <p>
+          Address/Location:{" "}
+          <span className="p-regular-12 lg:p-regular-16">
+            {jobDetails?.workAddress}
+          </span>
+        </p>
       </div>
       <div className="">
         <p>
@@ -203,9 +143,33 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       </div>
       <div className="">
         <p>
-          Working Days:{" "}
+          Nearest Station:{" "}
           <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.workingDays}
+            {jobDetails?.nearStation}
+          </span>
+        </p>
+      </div>
+      <div className="">
+        <p>
+          Occupation Classification:{" "}
+          <span className="p-regular-12 lg:p-regular-16">
+            {jobDetails?.occupationClassification}
+          </span>
+        </p>
+      </div>
+      <div className="">
+        <p>
+          Industry:{" "}
+          <span className="p-regular-12 lg:p-regular-16">
+            {jobDetails?.industry}
+          </span>
+        </p>
+      </div>
+      <div className="">
+        <p>
+          Qualifications:{" "}
+          <span className="p-regular-12 lg:p-regular-16">
+            {jobDetails?.qualificationName}
           </span>
         </p>
       </div>
@@ -257,34 +221,70 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
         </ul>
       </div>
       <div className="">
-        <ul className="p-regular-12 lg:p-regular-16">
-          {jobDetails?.holidaysOrVacations && (
-            <li>
-              <p className="p-medium-14 lg:p-medium-18">
-                Holiday/Vacation:
-                <span className="p-regular-12 lg:p-regular-16">
-                  {jobDetails?.holidaysOrVacations}
-                </span>
-              </p>
-            </li>
-          )}
-          {jobDetails?.hpUpdateDate && (
-            <li>
-              <p className="p-medium-14 lg:p-medium-18">
-                HP Update Date:
-                <span className="p-regular-12 lg:p-regular-16">
-                  {jobDetails?.hpUpdateDate}
-                </span>
-              </p>
-            </li>
-          )}
-        </ul>
+        {jobDetails?.holidaysOrVacations && (
+          <p className="p-medium-14 lg:p-medium-18">
+            Holiday/Vacation:
+            <span className="p-regular-12 lg:p-regular-16">
+              {jobDetails?.holidaysOrVacations}
+            </span>
+          </p>
+        )}
       </div>
       <div className="">
-        <p className="p-medium-14 lg:p-medium-18">
-          Points:{" "}
+        {jobDetails?.contractPeriod && (
+          <p className="p-medium-14 lg:p-medium-18">
+            Contract Period:{" "}
+            <span className="p-regular-12 lg:p-regular-16">
+              {jobDetails?.contractPeriod}
+            </span>
+          </p>
+        )}
+      </div>
+      <div className="">
+        {jobDetails?.contractRenew && (
+          <p className="p-medium-14 lg:p-medium-18">
+            Whether to Renew the Contract:{" "}
+            <span className="p-regular-12 lg:p-regular-16">
+              {jobDetails?.contractRenew}
+            </span>
+          </p>
+        )}
+      </div>
+      <div className="">
+        {jobDetails?.insurance && (
+          <p className="p-medium-14 lg:p-medium-18">
+            Participating Insurance:{" "}
+            <span className="p-regular-12 lg:p-regular-16">
+              {jobDetails?.insurance}
+            </span>
+          </p>
+        )}
+      </div>
+      <div className="">
+        {jobDetails?.passiveSmoking && (
+          <p className="p-medium-14 lg:p-medium-18">
+            Measures Against Passive Smoking:{" "}
+            <span className="p-regular-12 lg:p-regular-16">
+              {jobDetails?.passiveSmoking}
+            </span>
+          </p>
+        )}
+      </div>
+      <div className="">
+        {jobDetails?.hpUpdateDate && (
+          <p className="p-medium-14 lg:p-medium-18">
+            HP Update Date:{" "}
+            <span className="p-regular-12 lg:p-regular-16">
+              {jobDetails?.hpUpdateDate}
+            </span>
+          </p>
+        )}
+      </div>
+      <div className="">
+        <p>
+          Company Name:{" "}
           <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.point}
+            {jobDetails?.companyName}
           </span>
         </p>
       </div>
@@ -293,6 +293,14 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           Person Incharge Comment:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.personInCharge}
+          </span>
+        </p>
+      </div>
+      <div className="">
+        <p className="p-medium-14 lg:p-medium-18">
+          Points:{" "}
+          <span className="p-regular-12 lg:p-regular-16">
+            {jobDetails?.point}
           </span>
         </p>
       </div>

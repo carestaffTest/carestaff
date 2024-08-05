@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const SiteTermsArticles = () => {
@@ -13,10 +14,15 @@ const SiteTermsArticles = () => {
               The "Website Terms of Use" (hereinafter referred to as the "Terms
               of Use") apply to users (hereinafter referred to as the "Users")
               who use the various services (hereinafter referred to as the
-              "Services") provided on the "Care Staff Service Website"
-              https://carestaff.vercel.app/ (hereinafter referred to as the
-              "Site") operated by Hiro Career Staff Co., Ltd. (hereinafter
-              referred to as the "Company"). It is applied to.
+              "Services") provided on the "Care Staff Service Website"{" "}
+              <span className="text-blue-500">
+                <Link href="https://carestaff-three.vercel.app/">
+                  https://carestaff-three.vercel.app/
+                </Link>
+              </span>{" "}
+              (hereinafter referred to as the "Site") operated by Hiro Career
+              Staff Co., Ltd. (hereinafter referred to as the "Company"). It is
+              applied to.
             </p>
             <p>
               When using this site (browsing, searching, etc.), the user shall
@@ -59,8 +65,13 @@ const SiteTermsArticles = () => {
             We respect the privacy of users and pay close attention to the
             management of users' personal information. In the management and
             operation of this service, personal information obtained by the
-            Company from users shall be handled in accordance with the "Privacy
-            Policy" separately stipulated.
+            Company from users shall be handled in accordance with the "{" "}
+            <span className="text-blue-500">
+              <Link href="https://carestaff-three.vercel.app/privacypolicy">
+                Privacy Policy
+              </Link>
+            </span>{" "}
+            " separately stipulated.
           </p>
         </div>
 

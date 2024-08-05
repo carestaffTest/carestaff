@@ -99,8 +99,8 @@ const ViewJobDetailsRight = () => {
   }
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="flex-center flex-col max-w-[300px] md:max-w-full gap-5 md:gap-10 px-2 md:px-5">
+    <div className="w-full flex flex-col gap-5">
+      <div className="flex-center flex-col w-full gap-5 md:gap-10 px-2 md:px-5">
         <Image
           src="/assets/images/login_image.jpg"
           width={600}
@@ -243,7 +243,7 @@ const ViewJobDetailsRight = () => {
               />
             </div>
 
-            <div className="w-full flex items-center gap-2">
+            <div className="w-full flex-center gap-2">
               <FormField
                 control={form.control}
                 name="isCheck"
@@ -272,7 +272,7 @@ const ViewJobDetailsRight = () => {
               </div>
             </div>
 
-            <div className="flex w-full ">
+            <div className="flex w-full justify-center">
               <Button
                 type="submit"
                 disabled={!form.watch("isCheck") || form.formState.isSubmitting}

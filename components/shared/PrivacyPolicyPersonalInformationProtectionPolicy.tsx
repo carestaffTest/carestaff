@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const PrivacyPolicyPersonalInformationProtectionPolicy = () => {
@@ -291,8 +292,10 @@ const PrivacyPolicyPersonalInformationProtectionPolicy = () => {
               accordance with the following matters.
             </p>
             <p>
-              (1) Scope of joint use: HIRO Global Holdings Co., Ltd.
-              https://hirogh.co.jp/
+              (1) Scope of joint use: HIRO Global Holdings Co., Ltd.{" "}
+              <span className="text-blue-500">
+                <Link href="https://hirogh.co.jp/">https://hirogh.co.jp/</Link>
+              </span>{" "}
             </p>
             <p>
               (2) Person responsible for the management of personal information
