@@ -3,22 +3,15 @@
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
-import { employmentTypeSelection } from "@/constant";
+import { employmentStatusSelection } from "@/constant";
 
-const JobListEmploymentTypeFilter = () => {
+const JobListEmploymentStatus = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedOption, setSelectedOption] = useState("All");
 
   useEffect(() => {
-    const savedSearchTerm = localStorage.getItem("type");
+    const savedSearchTerm = localStorage.getItem("status");
     if (savedSearchTerm) {
       setSelectedOption(savedSearchTerm);
     }
@@ -34,18 +27,18 @@ const JobListEmploymentTypeFilter = () => {
     if (newValue && newValue !== "All") {
       newUrl = formUrlQuery({
         params: searchParams.toString(),
-        key: "type",
+        key: "status",
         value: newValue,
       });
 
-      localStorage.setItem("type", newValue);
+      localStorage.setItem("status", newValue);
     } else {
       newUrl = removeKeysFromQuery({
         params: searchParams.toString(),
-        keysToRemove: ["type"],
+        keysToRemove: ["status"],
       });
 
-      localStorage.removeItem("type");
+      localStorage.removeItem("status");
     }
 
     router.push(newUrl, { scroll: false });
@@ -58,9 +51,9 @@ const JobListEmploymentTypeFilter = () => {
         onChange={onSelectCategory}
         className="select-field"
       >
-        {employmentTypeSelection.map((type) => (
-          <option key={type.key} value={type.employmentTypeValue}>
-            {type.employmentType}
+        {employmentStatusSelection.map((status) => (
+          <option key={status.key} value={status.employmentTypeValue}>
+            {status.employmentType}
           </option>
         ))}
       </select>
@@ -68,4 +61,4 @@ const JobListEmploymentTypeFilter = () => {
   );
 };
 
-export default JobListEmploymentTypeFilter;
+export default JobListEmploymentStatus;

@@ -26,6 +26,7 @@ const ImportFileUpload = ({ userId }: any) => {
     "Special conditions (checkbox 4)": "specialConditions",
     "HP update date (text box 2)": "hpUpdateDate",
     "Employment status": "employmentStatus",
+    "Employment Type": "employmentType",
     "Hourly wage/daily wage/monthly wage/annual salary/minimum amount to maximum amount Required (Text Box 1)":
       "salaryRange",
     "Salary details (allowances, etc.) (text area 4)": "salaryDetails",

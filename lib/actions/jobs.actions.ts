@@ -188,7 +188,8 @@ export async function updateJobDetails({
 export async function getAllJobsSearch({
   jobtitle,
   location,
-  employment,
+  status,
+  type,
   limit = 10,
   page,
 }: GetAllSearch) {
@@ -250,13 +251,22 @@ export async function getAllJobsSearch({
           municipalityNagano: { $regex: location, $options: "i" },
         }
       : {};
-    const employmentCondition = employment
+    const employmentStatusCondition = status
       ? {
-          employmentStatus: { $regex: employment, $options: "i" },
+          employmentStatus: { $regex: status, $options: "i" },
+        }
+      : {};
+    const employmentTypeCondition = type
+      ? {
+          employmentType: { $regex: type, $options: "i" },
         }
       : {};
     const conditions = {
-      $and: [jobtitleCondition, employmentCondition],
+      $and: [
+        jobtitleCondition,
+        employmentStatusCondition,
+        employmentTypeCondition,
+      ],
       $or: [
         locationWorkCondition,
         locationAkitaCondition,

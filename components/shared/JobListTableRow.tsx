@@ -55,13 +55,10 @@ const JobListTableRow = ({ job }: { job: any }) => {
           {job.salaryRange}
         </TableCell>
         <TableCell className="p-regular-14 md:p-regular-14">
-          <p>{job.companyName}</p>
+          {job.workLocation}
         </TableCell>
         <TableCell className="p-regular-14 md:p-regular-14">
           {job.industry}
-        </TableCell>
-        <TableCell className="p-regular-14 md:p-regular-14">
-          {job.workLocation}
         </TableCell>
       </TableRow>
     </>

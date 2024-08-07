@@ -11,6 +11,7 @@ export const jobDetailsSchema = z.object({
   specialConditions: z.any(),
   hpUpdateDate: z.any(),
   employmentStatus: z.any(),
+  employmentType: z.any(),
   salaryRange: z.any(),
   salaryDetails: z.any(),
   benefitsDetails: z.any(),

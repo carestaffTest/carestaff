@@ -117,7 +117,7 @@ export const carouselSlide = [
   {
     key: "1",
     contentFirst:
-      "Are you seeking  for job opportunities or qualifications in caregiving?",
+      "Are you seeking for job opportunities or qualifications that specialize in nursing care facilities?",
     contentSecond: "We've got you covered!",
     buttonContent: "See List of Jobs",
     route: "/listofjobs",
@@ -794,6 +794,29 @@ export const faqsFive = [
   },
 ];
 
+export const employmentStatusSelection = [
+  {
+    key: "1",
+    employmentType: "All",
+    employmentTypeValue: "All",
+  },
+  {
+    key: "2",
+    employmentType: "Temporary",
+    employmentTypeValue: "Temporary",
+  },
+  {
+    key: "3",
+    employmentType: "Contract",
+    employmentTypeValue: "contract",
+  },
+  {
+    key: "4",
+    employmentType: "Regular",
+    employmentTypeValue: "regular",
+  },
+];
+
 export const employmentTypeSelection = [
   {
     key: "1",
@@ -802,28 +825,13 @@ export const employmentTypeSelection = [
   },
   {
     key: "2",
-    employmentType: "Full-time",
-    employmentTypeValue: "full-time",
+    employmentType: "Full-Time",
+    employmentTypeValue: "Full-Time",
   },
   {
     key: "3",
-    employmentType: "Part-time",
-    employmentTypeValue: "part-time",
-  },
-  {
-    key: "4",
-    employmentType: "Temporary",
-    employmentTypeValue: "temporary",
-  },
-  {
-    key: "5",
-    employmentType: "Contractual",
-    employmentTypeValue: "contractual",
-  },
-  {
-    key: "6",
-    employmentType: "Regular",
-    employmentTypeValue: "regular",
+    employmentType: "Part-Time",
+    employmentTypeValue: "Part-Time",
   },
 ];
 

@@ -264,9 +264,11 @@ const ViewJobDetailsRight = () => {
               <div className="">
                 <p>
                   I agree to the{" "}
-                  <Link href="/siteterms" className="text-[#e27107]">
-                    Site Terms of Use
-                  </Link>
+                  <span>
+                    <Link href="/siteterms" className="text-[#e27107]">
+                      Site Terms of Use
+                    </Link>
+                  </span>
                   .
                 </p>
               </div>

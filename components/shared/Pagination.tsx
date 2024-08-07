@@ -45,7 +45,7 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
       <PaginationItem key={1}>
         <PaginationLink
           href="#"
-          className={`px-4 py-2 ${
+          className={`px-1 md:px-4 py-2 ${
             currentPage === 1 ? "bg-orange-500" : "hover:bg-orange-200"
           }`}
           onClick={() => onClick(1)}
@@ -68,7 +68,7 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
         <PaginationItem key={i}>
           <PaginationLink
             href="#"
-            className={`px-4 py-2 ${
+            className={`px-1 md:px-4 py-2 ${
               currentPage === i ? "bg-orange-500" : "hover:bg-orange-200"
             }`}
             onClick={() => onClick(i)}
@@ -92,7 +92,7 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
         <PaginationItem key={totalPages}>
           <PaginationLink
             href="#"
-            className={`px-4 py-2 ${
+            className={`px-1 md:px-4 py-2 ${
               currentPage === totalPages
                 ? "bg-orange-500"
                 : "hover:bg-orange-200"
@@ -109,14 +109,14 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
   };
 
   return (
-    <div className="flex-center mt-5 p-5 p-regular-12 bg-[#53D1D1] text-white rounded-xl">
+    <div className="flex-center mt-5 py-5 p-regular-12 bg-[#53D1D1] text-white rounded-xl">
       <ShadcnPagination>
         <PaginationContent className="flex gap-2">
           <PaginationItem>
             <button
               onClick={() => onClick(currentPage - 1)}
               disabled={isPrevDisabled}
-              className={`px-4 py-2 ${
+              className={`px-1 md:px-4 py-2 ${
                 isPrevDisabled
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:bg-orange-200"
@@ -130,7 +130,7 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
             <button
               onClick={() => onClick(currentPage + 1)}
               disabled={isNextDisabled}
-              className={`px-4 py-2 ${
+              className={`px-1 md:px-4 py-2 ${
                 isNextDisabled
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:bg-orange-200"

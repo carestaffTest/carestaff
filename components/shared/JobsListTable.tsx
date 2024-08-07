@@ -19,28 +19,23 @@ const JobsListTable = ({ jobsData }: { jobsData: any[] }) => {
         <TableHeader>
           <TableRow>
             <TableHead className="">
-              <p className="min-w-[150px] p-medium-16 md:p-semibold-20">
+              <p className="min-w-[140px] p-medium-16 md:p-semibold-20">
                 Job Title
               </p>
             </TableHead>
             <TableHead className="">
-              <p className="min-w-[150px] p-medium-16 md:p-semibold-20">
+              <p className="min-w-[140px] p-medium-16 md:p-semibold-20">
                 Salary Range
               </p>
             </TableHead>
             <TableHead className="">
-              <p className="min-w-[175px] p-medium-16 md:p-semibold-20">
-                Employer Name
-              </p>
-            </TableHead>
-            <TableHead className="">
-              <p className="min-w-[150px] p-medium-16 md:p-semibold-20">
-                Industry
-              </p>
-            </TableHead>
-            <TableHead className="">
-              <p className="min-w-[150px] p-medium-16 md:p-semibold-20">
+              <p className="min-w-[140px] p-medium-16 md:p-semibold-20">
                 Work Location
+              </p>
+            </TableHead>
+            <TableHead className="">
+              <p className="min-w-[140px] p-medium-16 md:p-semibold-20">
+                Industry
               </p>
             </TableHead>
           </TableRow>

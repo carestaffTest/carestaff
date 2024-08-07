@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -37,6 +36,7 @@ const JobDetailsForm = ({
 }: JobDetailsFormProps) => {
   const { toast } = useToast();
   const router = useRouter();
+  const date = new Date();
   const initialValues =
     jobDetail && type === "Update" ? jobDetail : jobDetailsDefaultValues;
 
@@ -60,6 +60,7 @@ const JobDetailsForm = ({
             ...jobDetailsValue,
             _id: jobDetailId,
             createdBy: userId,
+            createdAt: date.toISOString(),
           },
           userId,
           path: "/adminops/joblist",
@@ -183,11 +184,11 @@ const JobDetailsForm = ({
             name="projectHeading"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
+                <FormControl className="h-72">
+                  <Textarea
                     placeholder="Project heading"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -202,11 +203,11 @@ const JobDetailsForm = ({
             name="point"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
+                <FormControl className="h-72">
+                  <Textarea
                     placeholder="Point"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -219,11 +220,11 @@ const JobDetailsForm = ({
             name="jobDescription"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
+                <FormControl className="h-72">
+                  <Textarea
                     placeholder="Job Description"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -238,11 +239,11 @@ const JobDetailsForm = ({
             name="personInCharge"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Person in charge"
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Person in Charge"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -255,11 +256,11 @@ const JobDetailsForm = ({
             name="specialConditions"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
+                <FormControl className="h-72">
+                  <Textarea
                     placeholder="Special conditions"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -307,6 +308,23 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
+            name="employmentType"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Employment Type"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="salaryRange"
             render={({ field }) => (
               <FormItem className="w-full">
@@ -321,17 +339,36 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="salaryDetails"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Salary Details (allowances, etc.)"
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Salary Details"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="benefitsDetails"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Treatment/Benefits"
+                    {...field}
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -341,23 +378,6 @@ const JobDetailsForm = ({
         </div>
 
         <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
-            control={form.control}
-            name="benefitsDetails"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Treatment/Benefits"
-                    {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <FormField
             control={form.control}
             name="workLocation"
@@ -374,36 +394,17 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityHokkaido"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl className="h-72">
-                  <Textarea
-                    placeholder="Work location (municipality) Hokkaido"
+                <FormControl>
+                  <Input
+                    placeholder="Work location (municipality) Hokkaido)"
                     {...field}
-                    className="textarea rounded-md"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="municipalityAomori"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl className="h-72">
-                  <Textarea
-                    placeholder="Work location (municipality) Aomori"
-                    {...field}
-                    className="textarea rounded-md"
+                    className="input-field"
                   />
                 </FormControl>
                 <FormMessage />
@@ -415,12 +416,12 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="municipalityIwate"
+            name="municipalityAomori"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="rk location (municipality) Iwate"
+                    placeholder="Work location (municipality) Aomori"
                     {...field}
                     className="input-field"
                   />
@@ -430,6 +431,25 @@ const JobDetailsForm = ({
             )}
           />
 
+          <FormField
+            control={form.control}
+            name="municipalityIwate"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <Input
+                    placeholder="Work location (municipality) Iwate"
+                    {...field}
+                    className="input-field"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityAkita"
@@ -446,9 +466,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityMiyagi"
@@ -465,7 +483,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityFukushima"
@@ -482,9 +502,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityYamagata"
@@ -501,7 +519,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityTochigi"
@@ -518,9 +538,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityGunma"
@@ -537,7 +555,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="municipalityNagano"
@@ -554,9 +574,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="transportationAccessInformation"
@@ -573,7 +591,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="workAddress"
@@ -590,9 +610,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="occupationClassification"
@@ -609,7 +627,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="industry"
@@ -626,9 +646,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="earlyWorkingHours"
@@ -645,7 +663,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="dayWorkingHours"
@@ -662,9 +682,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="lateworkingHours"
@@ -681,7 +699,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="nightworkingHours"
@@ -698,9 +718,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="firstOtherWorkingHours"
@@ -717,7 +735,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="secondOtherWorkingHours"
@@ -734,36 +754,17 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="holidaysOrVacations"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
+                <FormControl className="h-72">
+                  <Textarea
                     placeholder="Holidays/Vacations"
                     {...field}
-                    className="input-field"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="qualificationName"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Qualification Name"
-                    {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -773,6 +774,23 @@ const JobDetailsForm = ({
         </div>
 
         <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="qualificationName"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Qualification Name"
+                    {...field}
+                    className="textarea rounded-md"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
           <FormField
             control={form.control}
             name="companyName"
@@ -789,7 +807,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="nearStation"
@@ -806,9 +826,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="earlyShiftConsultant"
@@ -825,7 +843,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="dayShiftConsultant"
@@ -842,9 +862,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="lateShiftConsultant"
@@ -861,7 +879,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="nightShiftConsultant"
@@ -878,9 +898,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="otherShiftConsultant"
@@ -897,7 +915,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="registeredDate"
@@ -914,9 +934,7 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="contractPeriod"
@@ -933,7 +951,9 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="contractRenew"
@@ -950,26 +970,26 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="insurance"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="[Required] Participating insurance"
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Participating insurance"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+        </div>
 
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="passiveSmoking"
@@ -977,7 +997,7 @@ const JobDetailsForm = ({
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="[Required] Measures against passive smoking"
+                    placeholder="Measures against passive smoking"
                     {...field}
                     className="input-field"
                   />
@@ -986,9 +1006,6 @@ const JobDetailsForm = ({
               </FormItem>
             )}
           />
-        </div>
-
-        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="postCode"

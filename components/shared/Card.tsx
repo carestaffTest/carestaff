@@ -19,9 +19,8 @@ const Card = ({ recentJob, employerData, duration }: any) => {
         opacity: 1,
         x: 0,
         transition: {
-          duration: 1,
+          duration: 0.1,
           bounce: 0.3,
-          delay: 1,
         },
       });
     } else {

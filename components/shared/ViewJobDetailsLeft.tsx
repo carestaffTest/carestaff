@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import React from "react";
 import { ArrowLeft } from "lucide-react";
+import { Textarea } from "../ui/textarea";
 
 const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
   const router = useRouter();
@@ -53,21 +54,31 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           </span>
         </p>
       </div>
-      <div className="">
-        <p>
-          Job Description:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.jobDescription}
-          </span>
-        </p>
+      <div className="flex flex-col gap-2">
+        <p>Job Description:</p>
+        <Textarea
+          value={jobDetails?.jobDescription}
+          readOnly
+          className="p-regular-12 lg:p-regular-16 focus-visible:outline-none focus-visible:ring-* focus-visible:ring-0 focus-visible:shadow-none ring-offset-0 ring-transparent resize-none min-h-[26dvh]"
+        />
       </div>
-      <div className="">
-        <p>
-          Special Conditions:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.specialConditions}
-          </span>
-        </p>
+      <div className="flex flex-col gap-2">
+        <p>Special Conditions: </p>
+        <div className="p-regular-12 lg:p-regular-16">
+          <ul className="ist-disc list-inside">
+            {jobDetails?.specialConditions
+              .split("#")
+              .map((hashtag: any, index: any) => {
+                return (
+                  <li key={index}>
+                    <p>
+                      • <span>{hashtag}</span>
+                    </p>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
       </div>
       <div className="">
         <p>
@@ -79,20 +90,28 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
       </div>
       <div className="">
         <p>
-          Hourly wage/daily wage/monthly wage/annual salary/minimum amount to
-          maximum amount:{" "}
+          Employment Type:{" "}
           <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.salaryRange}
+            {jobDetails?.employmentType}
           </span>
         </p>
       </div>
       <div className="">
         <p>
-          Salary Details:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.salaryDetails}
+          Hourly wage/daily wage/monthly wage/annual salary/minimum amount to
+          maximum amount:{" "}
+          <span className="p-regular-12 lg:p-regular-16 text-orange-500">
+            {jobDetails?.salaryRange}
           </span>
         </p>
+      </div>
+      <div className="flex flex-col gap-2">
+        <p>Salary Details: </p>
+        <Textarea
+          value={jobDetails?.salaryDetails}
+          readOnly
+          className="p-regular-12 lg:p-regular-16 focus-visible:outline-none focus-visible:ring-* focus-visible:ring-0 focus-visible:shadow-none ring-offset-0 ring-transparent resize-none min-h-[26dvh]"
+        />
       </div>
       <div className="">
         <p>
@@ -102,16 +121,16 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           </span>
         </p>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <p>
           Prefecture:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
+          <span className="p-regular-12 lg:p-regular-16 text-orange-500">
             {jobDetails?.workLocation}
           </span>
         </p>
         <p>
           City:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
+          <span className="p-regular-12 lg:p-regular-16 text-orange-500">
             {jobDetails?.municipalityHokkaido &&
               jobDetails?.municipalityHokkaido}
             {jobDetails?.municipalityAomori && jobDetails?.municipalityAomori}
@@ -124,12 +143,6 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
               jobDetails?.municipalityYamagata}
             {jobDetails?.municipalityTochigi && jobDetails?.municipalityTochigi}
             {jobDetails?.municipalityNagano && jobDetails?.municipalityNagano}
-          </span>
-        </p>
-        <p>
-          Address/Location:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.workAddress}
           </span>
         </p>
       </div>
@@ -288,21 +301,21 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           </span>
         </p>
       </div>
-      <div className="">
-        <p className="p-medium-14 lg:p-medium-18">
-          Person Incharge Comment:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.personInCharge}
-          </span>
-        </p>
+      <div className="flex flex-col gap-2">
+        <p className="p-medium-14 lg:p-medium-18">Person Incharge Comment:</p>
+        <Textarea
+          value={jobDetails?.personInCharge}
+          readOnly
+          className="p-regular-12 lg:p-regular-16 focus-visible:outline-none focus-visible:ring-* focus-visible:ring-0 focus-visible:shadow-none ring-offset-0 ring-transparent resize-none min-h-[26dvh]"
+        />
       </div>
-      <div className="">
-        <p className="p-medium-14 lg:p-medium-18">
-          Points:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.point}
-          </span>
-        </p>
+      <div className="flex flex-col gap-2">
+        <p className="p-medium-14 lg:p-medium-18">Points: </p>
+        <Textarea
+          value={jobDetails?.point}
+          readOnly
+          className="p-regular-12 lg:p-regular-16 focus-visible:outline-none focus-visible:ring-* focus-visible:ring-0 focus-visible:shadow-none ring-offset-0 ring-transparent resize-none min-h-[26dvh]"
+        />
       </div>
     </div>
   );

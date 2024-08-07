@@ -11,6 +11,7 @@ export interface IJobs extends Document {
   specialConditions: string;
   hpUpdateDate: string;
   employmentStatus: string;
+  employmentType: string;
   salaryRange: string;
   salaryDetails: string;
   benefitsDetails: string;
@@ -65,6 +66,7 @@ const JobsSchema = new Schema({
   specialConditions: { type: String, required: false },
   hpUpdateDate: { type: String, required: false },
   employmentStatus: { type: String, required: false },
+  employmentType: { type: String, required: false },
   salaryRange: { type: String, required: false },
   salaryDetails: { type: String, required: false },
   benefitsDetails: { type: String, required: false },

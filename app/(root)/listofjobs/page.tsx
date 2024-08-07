@@ -5,7 +5,8 @@ import React from "react";
 const ListOfJobs = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
   const jobTitle = (searchParams?.query as string) || "";
-  const employmentStatus = (searchParams?.employment as string) || "";
+  const employmentStatus = (searchParams?.status as string) || "";
+  const employmentType = (searchParams?.type as string) || "";
   const locationSearch = (searchParams?.location as string) || "";
 
   return (
@@ -17,7 +18,8 @@ const ListOfJobs = async ({ searchParams }: SearchParamProps) => {
         <JobsList
           page={page}
           jobTitle={jobTitle}
-          employment={employmentStatus}
+          status={employmentStatus}
+          type={employmentType}
           location={locationSearch}
         />
       </div>
