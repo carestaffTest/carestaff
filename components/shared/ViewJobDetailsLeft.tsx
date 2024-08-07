@@ -63,22 +63,26 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <p>Special Conditions: </p>
-        <div className="p-regular-12 lg:p-regular-16">
-          <ul className="ist-disc list-inside">
-            {jobDetails?.specialConditions
-              .split("#")
-              .map((hashtag: any, index: any) => {
-                return (
-                  <li key={index}>
-                    <p>
-                      • <span>{hashtag}</span>
-                    </p>
-                  </li>
-                );
-              })}
-          </ul>
-        </div>
+        {jobDetails?.specialConditions && (
+          <>
+            <p>Special Conditions: </p>
+            <div className="p-regular-12 lg:p-regular-16">
+              <ul>
+                {jobDetails?.specialConditions
+                  .split("#")
+                  .map((hashtag: any, index: any) => {
+                    return (
+                      <li key={index}>
+                        <p>
+                          • <span>{hashtag}</span>
+                        </p>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+          </>
+        )}
       </div>
       <div className="">
         <p>
@@ -113,13 +117,27 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           className="p-regular-12 lg:p-regular-16 focus-visible:outline-none focus-visible:ring-* focus-visible:ring-0 focus-visible:shadow-none ring-offset-0 ring-transparent resize-none min-h-[26dvh]"
         />
       </div>
-      <div className="">
-        <p>
-          Treatment/benefits:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.benefitsDetails}
-          </span>
-        </p>
+      <div className="flex flex-col gap-2">
+        {jobDetails?.benefitsDetails && (
+          <>
+            <p>Treatment/benefits:</p>
+            <div className="p-regular-12 lg:p-regular-16">
+              <ul>
+                {jobDetails?.benefitsDetails
+                  .split("#")
+                  .map((hashtag: any, index: any) => {
+                    return (
+                      <li key={index}>
+                        <p>
+                          • <span>{hashtag}</span>
+                        </p>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+          </>
+        )}
       </div>
       <div className="flex flex-col ">
         <p>
@@ -178,13 +196,27 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           </span>
         </p>
       </div>
-      <div className="">
-        <p>
-          Qualifications:{" "}
-          <span className="p-regular-12 lg:p-regular-16">
-            {jobDetails?.qualificationName}
-          </span>
-        </p>
+      <div className="flex flex-col gap-2">
+        {jobDetails?.qualificationName && (
+          <>
+            <p>Qualifications:</p>
+            <div className="p-regular-12 lg:p-regular-16">
+              <ul>
+                {jobDetails?.qualificationName
+                  .split("#")
+                  .map((hashtag: any, index: any) => {
+                    return (
+                      <li key={index}>
+                        <p>
+                          • <span>{hashtag}</span>
+                        </p>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+          </>
+        )}
       </div>
       <div className="">
         <p>Shifts: </p>
@@ -233,14 +265,26 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           )}
         </ul>
       </div>
-      <div className="">
+      <div className="flex flex-col gap-2">
         {jobDetails?.holidaysOrVacations && (
-          <p className="p-medium-14 lg:p-medium-18">
-            Holiday/Vacation:
-            <span className="p-regular-12 lg:p-regular-16">
-              {jobDetails?.holidaysOrVacations}
-            </span>
-          </p>
+          <>
+            <p>Holiday/Vacation:</p>
+            <div className="p-regular-12 lg:p-regular-16">
+              <ul>
+                {jobDetails?.holidaysOrVacations
+                  .split("#")
+                  .map((hashtag: any, index: any) => {
+                    return (
+                      <li key={index}>
+                        <p>
+                          • <span>{hashtag}</span>
+                        </p>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+          </>
         )}
       </div>
       <div className="">
@@ -263,14 +307,26 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           </p>
         )}
       </div>
-      <div className="">
+      <div className="flex flex-col gap-2">
         {jobDetails?.insurance && (
-          <p className="p-medium-14 lg:p-medium-18">
-            Participating Insurance:{" "}
-            <span className="p-regular-12 lg:p-regular-16">
-              {jobDetails?.insurance}
-            </span>
-          </p>
+          <>
+            <p>Participating Insurance:</p>
+            <div className="p-regular-12 lg:p-regular-16">
+              <ul>
+                {jobDetails?.insurance
+                  .split("#")
+                  .map((hashtag: any, index: any) => {
+                    return (
+                      <li key={index}>
+                        <p>
+                          • <span>{hashtag}</span>
+                        </p>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+          </>
         )}
       </div>
       <div className="">

@@ -181,14 +181,14 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="projectHeading"
+            name="contractRenew"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl className="h-72">
-                  <Textarea
-                    placeholder="Project heading"
+                <FormControl>
+                  <Input
+                    placeholder="Whether to renew the contract"
                     {...field}
-                    className="textarea rounded-md"
+                    className="input-field"
                   />
                 </FormControl>
                 <FormMessage />
@@ -757,14 +757,14 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="holidaysOrVacations"
+            name="companyName"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl className="h-72">
-                  <Textarea
-                    placeholder="Holidays/Vacations"
+                <FormControl>
+                  <Input
+                    placeholder="Company Name"
                     {...field}
-                    className="textarea rounded-md"
+                    className="input-field"
                   />
                 </FormControl>
                 <FormMessage />
@@ -793,14 +793,14 @@ const JobDetailsForm = ({
 
           <FormField
             control={form.control}
-            name="companyName"
+            name="holidaysOrVacations"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Company Name"
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Holidays/Vacations"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
@@ -956,14 +956,14 @@ const JobDetailsForm = ({
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="contractRenew"
+            name="projectHeading"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    placeholder="Whether to renew the contract"
+                <FormControl className="h-72">
+                  <Textarea
+                    placeholder="Project heading"
                     {...field}
-                    className="input-field"
+                    className="textarea rounded-md"
                   />
                 </FormControl>
                 <FormMessage />
