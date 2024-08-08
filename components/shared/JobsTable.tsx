@@ -16,7 +16,6 @@ const JobsTable = ({ jobsData }: { jobsData: any[] }) => {
   return (
     <>
       <Table>
-        <TableCaption>A list of your recent added job.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="text-center">

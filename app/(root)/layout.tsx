@@ -1,4 +1,3 @@
-import HomepageClientSideProvider from "@/components/shared/HomepageClientSideProvider";
 import NavBarHeader from "@/components/shared/NavBarHeader";
 import PageFooter from "@/components/shared/PageFooter";
 import TranslateWithGoogle from "@/components/shared/TranslateWithGoogle";
@@ -16,7 +15,7 @@ export default async function RootLayout({
   const user = userId ? await getUserById(userId) : "";
   const userPosition = user ? user.position : "";
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-screen flex-col transition-all">
       <NavBarHeader userPosition={userPosition} children={children} />
       <main className="flex-1">{children}</main>
       <PageFooter />

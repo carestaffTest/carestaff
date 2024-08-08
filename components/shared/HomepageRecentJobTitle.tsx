@@ -34,7 +34,7 @@ const HomepageRecentJobTitle = () => {
     <motion.div
       ref={ref}
       animate={animation1}
-      className="text-[#e27107] h3-bold z-10"
+      className="text-[#e27107] p-bold-24 md:h3-bold z-10"
     >
       Recommended Jobs
     </motion.div>

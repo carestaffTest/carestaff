@@ -71,11 +71,16 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
                 {jobDetails?.specialConditions
                   .split("#")
                   .map((hashtag: any, index: any) => {
+                    console.log("hashtag", hashtag);
                     return (
                       <li key={index}>
-                        <p>
-                          • <span>{hashtag}</span>
-                        </p>
+                        {hashtag && (
+                          <>
+                            <p>
+                              • <span>{hashtag}</span>
+                            </p>
+                          </>
+                        )}
                       </li>
                     );
                   })}
@@ -128,9 +133,13 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
                   .map((hashtag: any, index: any) => {
                     return (
                       <li key={index}>
-                        <p>
-                          • <span>{hashtag}</span>
-                        </p>
+                        {hashtag && (
+                          <>
+                            <p>
+                              • <span>{hashtag}</span>
+                            </p>
+                          </>
+                        )}
                       </li>
                     );
                   })}
@@ -207,9 +216,13 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
                   .map((hashtag: any, index: any) => {
                     return (
                       <li key={index}>
-                        <p>
-                          • <span>{hashtag}</span>
-                        </p>
+                        {hashtag && (
+                          <>
+                            <p>
+                              • <span>{hashtag}</span>
+                            </p>
+                          </>
+                        )}
                       </li>
                     );
                   })}
@@ -276,9 +289,13 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
                   .map((hashtag: any, index: any) => {
                     return (
                       <li key={index}>
-                        <p>
-                          • <span>{hashtag}</span>
-                        </p>
+                        {hashtag && (
+                          <>
+                            <p>
+                              • <span>{hashtag}</span>
+                            </p>
+                          </>
+                        )}
                       </li>
                     );
                   })}
@@ -318,9 +335,13 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
                   .map((hashtag: any, index: any) => {
                     return (
                       <li key={index}>
-                        <p>
-                          • <span>{hashtag}</span>
-                        </p>
+                        {hashtag && (
+                          <>
+                            <p>
+                              • <span>{hashtag}</span>
+                            </p>
+                          </>
+                        )}
                       </li>
                     );
                   })}

@@ -43,11 +43,14 @@ const AboutUsListOfOfficesCell = ({
         </div>
       </TableCell>
       <TableCell className="p-regular-12 md:p-regular-16">
-        <div ref={ref2} className="flex flex-col">
+        <div ref={ref2} className="flex flex-col gap-2 md:gap-5">
           <motion.p animate={animation2} className="">
             {address}
           </motion.p>
-          <motion.p animate={animation2} className="flex flex-row gap-5">
+          <motion.p
+            animate={animation2}
+            className="flex flex-col md:flex-row gap-2 md:gap-5"
+          >
             {telNumber}
             <span className="">{fax}</span>
             <span className="">{email}</span>

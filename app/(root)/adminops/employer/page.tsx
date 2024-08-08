@@ -25,9 +25,9 @@ const EmployerPage = async ({ searchParams }: SearchParamProps) => {
       <p className="h3-bold uppercase">Employer List</p>
 
       <Separator className="h-2 my-5 bg-[#53D1D1]" />
-      <div className="flex gap-3 relative w-full">
+      <div className="flex flex-col md:flex-row gap-3 relative w-full">
         <Search placeholder="Search Company Name..." />
-        <Button>
+        <Button className="w-full md:w-1/4 h-[54px]">
           <Link href="/adminops/employer/addemployer">
             Create Employer Details
           </Link>

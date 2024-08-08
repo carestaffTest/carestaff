@@ -117,7 +117,7 @@ export const carouselSlide = [
   {
     key: "1",
     contentFirst:
-      "Are you seeking for job opportunities or qualifications that specialize in nursing care facilities?",
+      "Are you seeking for job opportunities or qualifications that specializes in nursing care facilities?",
     contentSecond: "We've got you covered!",
     buttonContent: "See List of Jobs",
     route: "/listofjobs",
@@ -830,8 +830,8 @@ export const employmentTypeSelection = [
   },
   {
     key: "3",
-    employmentType: "Part-Time",
-    employmentTypeValue: "Part-Time",
+    employmentType: "Short-Time",
+    employmentTypeValue: "Short-Time",
   },
 ];
 

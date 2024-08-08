@@ -32,8 +32,8 @@ const Header = ({ userPosition }: any) => {
     <header
       className={
         shadow
-          ? "fixed w-full border-b bg-[#53D1D1] z-[100]"
-          : "w-full border-b bg-[#53D1D1]/50 z-[100]"
+          ? "fixed w-full border-b bg-[#53D1D1] z-[100] transition-all"
+          : "w-full border-b bg-[#53D1D1]/50 z-[100] transition-all"
       }
     >
       <div className="wrapper flex-between">

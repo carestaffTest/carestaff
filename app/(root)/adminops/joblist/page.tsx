@@ -25,14 +25,16 @@ const JobListPage = async ({ searchParams }: SearchParamProps) => {
       <p className="h3-bold uppercase">Job List</p>
 
       <Separator className="h-2 my-5 bg-[#53D1D1]" />
-      <div className="flex gap-3 relative w-full">
+      <div className="flex flex-col md:flex-row gap-3 relative w-full">
         <Search placeholder="Search Job Title..." />
-        <Button>
-          <Link href="/adminops/joblist/importfile">Import files</Link>
-        </Button>
-        <Button>
-          <Link href="/adminops/joblist/addjob">Create new Job</Link>
-        </Button>
+        <div className="w-full md:w-1/3 flex gap-3">
+          <Button className="w-1/2 h-full">
+            <Link href="/adminops/joblist/importfile">Import files</Link>
+          </Button>
+          <Button className="w-1/2 h-full">
+            <Link href="/adminops/joblist/addjob">Create new Job</Link>
+          </Button>
+        </div>
       </div>
 
       <div className="flex-center py-5 gap-5 flex-col">
